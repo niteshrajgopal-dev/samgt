@@ -97,7 +97,7 @@ export default async function StandingsPage() {
                                                         </tr>
                                                     </thead>
                                                     <tbody className="divide-y divide-gray-800">
-                                                        {champStandings.map((standing) => {
+                                                        {champStandings.map((standing: typeof champStandings[0]) => {
                                                             const gap = standing.position === 1 ? 0 : leaderPoints - standing.points
 
                                                             return (
