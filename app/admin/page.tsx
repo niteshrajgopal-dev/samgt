@@ -1,7 +1,5 @@
 import Navigation from '@/components/Navigation'
 import { supabase } from '@/lib/supabase'
-import { auth } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
 import AdminDashboard from '@/components/AdminDashboard'
 
 export const revalidate = 0
@@ -19,12 +17,6 @@ async function getAdminData() {
 }
 
 export default async function AdminPage() {
-    const { userId } = await auth()
-
-    if (!userId) {
-        redirect('/sign-in')
-    }
-
     const data = await getAdminData()
 
     return (
