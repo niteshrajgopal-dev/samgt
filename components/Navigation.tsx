@@ -1,11 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { UserButton, useUser } from '@clerk/nextjs'
 
 export default function Navigation() {
-    const { isSignedIn } = useUser()
-
     return (
         <nav className="sticky top-0 z-50 border-b border-gray-800 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
             <div className="container mx-auto px-4">
@@ -49,18 +46,14 @@ export default function Navigation() {
                         </Link>
                     </div>
 
-                    {/* Auth Button */}
+                    {/* Auth Button - Simplified */}
                     <div className="flex items-center gap-4">
-                        {isSignedIn ? (
-                            <UserButton afterSignOutUrl="/" />
-                        ) : (
-                            <Link
-                                href="/sign-in"
-                                className="px-4 py-2 bg-gradient-to-r from-red-500 to-purple-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all"
-                            >
-                                Sign In
-                            </Link>
-                        )}
+                        <Link
+                            href="/sign-in"
+                            className="px-4 py-2 bg-gradient-to-r from-red-500 to-purple-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all"
+                        >
+                            Sign In
+                        </Link>
                     </div>
                 </div>
             </div>
